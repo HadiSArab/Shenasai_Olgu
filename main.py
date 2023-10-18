@@ -38,7 +38,7 @@ for i, column in enumerate(features[:-1]):
     ax = axes[i]
     # ax=axes[i]
     # ax.hist(df[column], bins=25, alpha=0.5, label='Infected', color='green')
-    sns.histplot(df[column], color="g",label='Infected',ax=axes[i])
+    sns.histplot(df[column], color="b",label='Infected',ax=axes[i])
     ax.set_title("Feature histogram based on infection")
     axes[i].set_xlabel(column)
     axes[i].set_ylabel('amount')
@@ -57,9 +57,9 @@ fig, axes = plt.subplots(1, 4, figsize=(20, 5))
 for i, special in enumerate(special_features):
     ax = axes[i]
     # axes[i].hist(Infected[special], bins=25, alpha=0.5, label='Infected', color='green')
-    sns.histplot(Infected[special], color="r", label='Infected', ax=axes[i])
+    sns.histplot(Infected[special], color="red", label='Infected', ax=axes[i])
     # axes[i].hist(Not_Infected[special], bins=25, alpha=0.5, label='Not Infected', color='black')
-    sns.histplot(Not_Infected[special], color="b", label='Not Infected', ax=axes[i])
+    sns.histplot(Not_Infected[special], color="green", label='Not Infected', ax=axes[i])
     ax.set_title("Feature histogram based on infection")
     axes[i].set_xlabel(special)
     axes[i].set_ylabel('amount')
