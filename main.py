@@ -25,20 +25,23 @@ df.columns = ['Number of times pregnant', 'Plasma glucose concentration a 2 hour
               'infection']
 
 df["infection"] = df['infection'].replace(1, "Infected").replace(0, "Not Infected")
-print(df)
+# print(df)
 
 
 ################################
 #Plot all histograms
 features = df.columns
-fig, axes = plt.subplots(2, 4, figsize=(20, 10))
+#هیستوگرام خود ويژگی کلاس هم باید ترسیم شود
+fig, axes = plt.subplots(2, 5, figsize=(20, 10))
 axes = axes.ravel()
-for i, column in enumerate(features[:-1]):
+for i, column in enumerate(features[:]):
     # Calculate the current row and column
     ax = axes[i]
-    # ax=axes[i]
     # ax.hist(df[column], bins=25, alpha=0.5, label='Infected', color='green')
+
+    # در صورت سوال خواسته بدون در نظر گرفتن کلاس پس لیبل در خط زير بايد اصلاح شود"
     sns.histplot(df[column], color="b",label='Infected',ax=axes[i])
+    
     ax.set_title("Feature histogram based on infection")
     axes[i].set_xlabel(column)
     axes[i].set_ylabel('amount')
@@ -50,8 +53,9 @@ plt.show()
 #Plot base on class number
 Infected = df[df['infection'] == "Infected"]
 Not_Infected = df[df['infection'] == "Not Infected"]
-special_features = [features[1], features[2], features[4], features[6]]
-print(special_features)
+# ویژگی 4 به جای 5 قرار داده شده بود
+special_features = [features[1], features[2], features[5], features[6]]
+print(Not_Infected)
 
 fig, axes = plt.subplots(1, 4, figsize=(20, 5))
 for i, special in enumerate(special_features):
